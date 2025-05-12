@@ -1,0 +1,4 @@
+git init: Khởi tạo một repository Git, tạo thư mục .git để theo dõi các tệp thay đổi
+git add <file_name>: Di chuyển file_name từ Working Directory vào Staging Area để chuẩn bị commit
+git add .: Di chuyển tất cả các file từ Working Directory vào Staging Area
+git commit -m "message": Lưu các thay đổi từ Staging Area vào Repository kèm message để thêm nội dung mô tả
