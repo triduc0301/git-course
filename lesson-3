@@ -1,0 +1,46 @@
+Bài 1:=========================================
+git commit --amend: Dùng để truy cập vào 1 cửa sổ dạng vim trong đó có thể thao tác thay đổi commit gần nhất
+git commit --amend -m”<message>”: Thay đổi commit gần nhất bằng commit mới với message mới nhập vào
+git restore --staged <file>: Đưa <file> đã được add vào vùng Stagging về vùng Directory
+git reset HEAD~1: Revert lại commit gần nhất về vùng Directory
+
+Bài 2:=========================================
+a. Tạo 3 file: file1, file2, file3: Local
+b. git init: sau khi init 3 file được đưa vào vùng Directory
+c. git commit -m”init project”: sẽ xuất hiện lỗi vì chưa có file nào được add vào vùng Stagging để commit, 3 file sẽ vẫn ở vùng Directory
+d. git add file1: file 1 được đưa vào vùng Stagging
+e. git commit -m”add file”: file 1 được đưa vào vùng Repository
+f. git add .: những file còn lại đang ở vùng Directory (file 2, 3) được đưa sang Stagging
+g. git restore --staged file2: file 2 được đưa lại vùng Directory
+h. git commit -m”add all files”: file 3(đang ở Stagging) sẽ được đưa sang vùng Repository
+i. git reset HEAD~1: file 3 (đang ở Repository) được đưa về vùng Directory
+
+Bài 3:=========================================
+a. git init: lesson-3-git/ :Directory
+b. Tạo file file1.txt, file2.txt, oops/file3.txt.
+Chỗ này đề bài chưa kĩ cho lắm sẽ chia tạm 2 trường hợp:
+- TH1: file1.txt và file2.txt được tạo trong folder lesson-3-git và file3.txt được tạo trong 1 folder oops mới
+  + file1.txt và file2.txt: Directory vì thuộc folder lesson-3-git
+  + file3.txt: Local vì folder oops chưa được init
+- TH2: file1.txt và file2.txt tạo ngoài folder lesson-3-git và file3.txt được tạo trong 1 folder oops mới
+  + cả 3 file: Local
+c. 
+  file1.txt, folder oops/: 2 cái này sẽ không đưa vào version control
+d. Chạy lệnh: git add .
+- TH1: file1.txt và file2.txt được tạo trong folder lesson-3-git và file3.txt được tạo trong 1 folder oops mới 
+  + file1.txt: Directory
+  + file2.txt: Stagging
+  + file3.txt: Local
+- TH2: file1.txt và file2.txt tạo ngoài folder lesson-3-git và file3.txt được tạo trong 1 folder oops mới
+  + file1.txt: Local
+  + file2.txt: Local
+  + file3.txt: Local
+e. Chạy lệnh: git commit -m"init project"
+- TH1: file1.txt và file2.txt được tạo trong folder lesson-3-git và file3.txt được tạo trong 1 folder oops mới 
+  + file1.txt: Directory
+  + file2.txt: Repository
+  + file3.txt: Local
+- TH2: file1.txt và file2.txt tạo ngoài folder lesson-3-git và file3.txt được tạo trong 1 folder oops mới
+  + file1.txt: Local
+  + file2.txt: Local
+  + file3.txt: Local
